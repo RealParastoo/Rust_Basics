@@ -17,6 +17,20 @@ fn main() {
     let s4 = String::from("program");
     let length = calculate_length(&s4);
     println!("The length of '{s4}' is {length}.");
+
+    let mut a = String::from("test0");
+    change(&mut a);
+    println!("{a}");
+
+    let mut b = String::from("test2");
+
+    let r1 = &b; // no problem
+    let r2 = &b; // no problem
+    println!("{r1} and {r2}");
+    // variables r1 and r2 will not be used after this point
+
+    let r3 = &mut b; // no problem
+    println!("{r3}");
 }
 
 fn takes_ownership(some_string: String)
@@ -48,4 +62,7 @@ fn calculate_length_ownership(s: String) -> (String, usize) {
 
 fn calculate_length(s: &String) -> usize {
     s.len()
+}
+fn change(some_string: &mut String) {
+    some_string.push_str(", test1");
 }
