@@ -43,6 +43,10 @@ fn main() {
     println!("x is {:?}", x);
     println!("y is {:?}", y);
     println!("z is {:?}", z);
+
+    let s = sum(1 , 2);
+    assert_eq!(s, 3);
+    println!("Success!");
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
@@ -52,4 +56,8 @@ fn value_in_cents(coin: Coin) -> u8 {
         Coin::Dime => 10,
         Coin::Quarter => 25,
     }
+}
+
+fn sum(x: i32, y: i32) -> i32 {
+    x + y
 }
